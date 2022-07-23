@@ -1,0 +1,55 @@
+
+.inner-div{
+    width: 70vw;
+    min-height:40vh;
+    padding:30px 30px;
+    border-radius: 1rem;
+    background-color:#F5EDDC;
+    box-shadow: 0 1rem 1rem rgba(0,0,0, 0.4);
+    border: 2px solid black;
+}
+.new-expense__controls {
+
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  .new-expense__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .new-expense__control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 40rem;
+    max-width: 100%;
+  }
+  .new-expense__actions {
+    text-align: right;
+  }
+  select {
+    font: inherit;
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+
+ .btn{
+   background-color: black;
+   font-size:20px;
+   color: white;
+   width: 8rem;
+   height:3rem;
+   margin:20px;
+   border-radius:2px;
+ }
+ .question_head{
+  border-radius:4px;
+  background-color:black;
+  color:white;
+  padding:10px;
+}
+ 

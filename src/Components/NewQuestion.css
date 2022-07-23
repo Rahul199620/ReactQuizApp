@@ -1,0 +1,12 @@
+.main-div {
+    background-color:#B7D3DF;
+    display:grid;
+    place-items: center;
+    width: 100vw;
+    min-height:95vh;
+
+}
+.space{
+    width:10vw;
+    min-height:10vh;
+}
