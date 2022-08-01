@@ -1,12 +1,13 @@
 
 .inner-div{
-    width: 70vw;
+    width:65vw;
     min-height:40vh;
     padding:30px 30px;
     border-radius: 1rem;
     background-color:#F5EDDC;
     box-shadow: 0 1rem 1rem rgba(0,0,0, 0.4);
     border: 2px solid black;
+    margin: 40px;
 }
 .new-expense__controls {
 
@@ -19,22 +20,24 @@
     margin-bottom: 0.5rem;
     display: block;
   }
-  .new-expense__control input {
+  .new-expense__control input , textarea{
     font: inherit;
     padding: 0.5rem;
     border-radius: 6px;
     border: 1px solid #ccc;
-    width: 40rem;
+    width: 60rem;
     max-width: 100%;
   }
   .new-expense__actions {
     text-align: right;
   }
-  select {
+  .filter_select {
     font: inherit;
     padding: 0.5rem 3rem;
     font-weight: bold;
     border-radius: 6px;
+    width: 60rem;
+    max-width: 100%;
   }
 
  .btn{

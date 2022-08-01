@@ -74,7 +74,7 @@ const QuestionForm=(props)=>{
                 </div>
                 <div className="new-expense__control">
                    <label>Category</label>
-                     <select value={category} name='category' onChange={categoryHandler}>
+                     <select className="filter_select"  value={category} name='category' onChange={categoryHandler}>
                       <option value='react'>React</option>
                       <option value="html">HTML</option>
                       <option value='css'>Css</option>
@@ -99,7 +99,7 @@ const QuestionForm=(props)=>{
                   </div>
                   <div className='new-expense__control'>
                      <label>Correct Option</label>
-                     <select value={correct} name="correct" onChange={correctHandler}>
+                     <select className="filter_select" value={correct} name="correct" onChange={correctHandler}>
                          <option value="option1">option1</option>
                          <option value='option2'>option2</option>
                          <option value="option3">option3</option>

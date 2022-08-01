@@ -10,7 +10,7 @@ const QuizFilter=(props)=>{
         <div className="question-filter">
            <div className="quiz-filter__control">
               <label>Category Filter:   </label>
-              <select value={props.selected} onChange={dropdownHandler}>
+              <select className="fil_select" value={props.selected} onChange={dropdownHandler}>
                  <option value="react">React</option>
                  <option value="html">HTML</option>
                  <option value="css">Css</option>

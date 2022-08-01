@@ -21,3 +21,13 @@
     font-weight: bold;
     border-radius: 6px;
   }
+
+ .fil_select{
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 6px;
+  width:20rem;
+  max-width: 100%;
+ }
+  

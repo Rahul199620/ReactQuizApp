@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import QuestionPanel from './Components/QuestionPanel';
 import NewQuestion from './Components/NewQuestion';
 import Questions from './Components/Questions';
+import Login from './Components/Login/Login';
+import MainHeader from './Components/MainHeader/MainHeader';
 const initial_question=[
   {
       id:1,
@@ -54,7 +56,31 @@ const initial_question=[
     
 }
 ]
+
+
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(()=>{
+    const loggedinUserStatus=localStorage.getItem("role");
+    if(loggedinUserStatus==="admin" || loggedinUserStatus==="user"){
+     setIsLoggedIn(true);
+    }
+  },[]);
+ 
+   const loginHandler = (email, password) => {
+     // We should of course check email and password
+     // But it's just a dummy/ demo anyways
+
+     setIsLoggedIn(true);
+     
+   };
+ 
+   const logoutHandler = () => {
+     localStorage.removeItem('role');
+     localStorage.removeItem('name');
+     setIsLoggedIn(false);
+   };
  
   const [questions, setQuestions] = useState(initial_question);
 
@@ -66,19 +92,44 @@ function App() {
     });
 
   };
-  return (
-    <div className="App">
-      <NewQuestion  onaAddQuestion={addQuestionhandler} />
-      <div className="main-div">
-          <div className="inner-div">
-              <h4  className="main_head">Quiz Application</h4>
-               <Questions questions={questions}/>
-            <hr></hr>
-            <button className="btn">Submit</button>
-          </div>
-        </div>
-    </div>
-  );
+   
+  
+  if(localStorage.getItem("role")==="admin"){
+    return (
+      <div className="App">
+        <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+        {!isLoggedIn && <Login onLogin={loginHandler}/>}
+        {isLoggedIn &&<NewQuestion  onaAddQuestion={addQuestionhandler} onLogout={logoutHandler} />}
+        {isLoggedIn &&
+        <div className="main-div">
+            <div className="inner-div">
+                <h4  className="main_head">Quiz Application</h4>
+                 <Questions questions={questions} onLogout={logoutHandler} />
+              <hr></hr>
+              <button className="btn">Submit</button>
+            </div>
+          </div>}
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="App">
+        <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+        {!isLoggedIn && <Login onLogin={loginHandler}/>}
+        {isLoggedIn &&
+        <div className="main-div">
+            <div className="inner-div">
+                <h4  className="main_head">Quiz Application</h4>
+                 <Questions questions={questions} onLogout={logoutHandler} />
+              <hr></hr>
+              <button className="btn">Submit</button>
+            </div>
+          </div>}
+      </div>
+    );
+  }
+  
 }
 
 export default App;
